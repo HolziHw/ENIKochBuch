@@ -6,9 +6,15 @@ using System.Web.Mvc;
 
 namespace ENIKochbuch.Controllers
 {
-    public class HomeController : Controller
+    public class EintragController : Controller
     {
+        // GET: Eintrag
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult newEntry()
         {
             return View();
         }
