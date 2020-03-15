@@ -1,3 +1,58 @@
-﻿@models Models.ne
+﻿@model ENIKochbuch.Models.Entry
+@using ENIKochbuch.Models
 
 
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.ValidationSummary()
+    </p>
+    <div align="center">
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="2">Registrierungsdaten</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.LabelFor(u => u.Name, "Name: ")</td>
+                    <td>@Html.TextBoxFor(u => u.Name)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(u => u.Beschreibung, "Beschreibung: ")</td>
+                    <td>@Html.TextAreaFor(u => u.Beschreibung)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(u => u.Klassifikation, "Typ des Gerichts: ")</td>
+                    <td>@Html.DropDownListFor(u => u.Klassifikation, new SelectList(Enum.GetValues(typeof(Klassifikation))), "Select Klassifikation")</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(u => u.Portionen, "Portionen: ")</td>
+                    <td>@Html.TextBoxFor(u => u.Portionen, new { @type = "number"})</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(u => u.Schwierigkeit, "Schwierigkeit: ")</td>
+                    <td>@Html.DropDownListFor(u => u.Schwierigkeit, new SelectList(Enum.GetValues(typeof(Schwierigkeit))), "Schwierigkeit auswählen")</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(u => u.Saison, "Saison: ")</td>
+                    <td>@Html.DropDownListFor(u => u.Saison, new SelectList(Enum.GetValues(typeof(Saison))), "Saison auswählen")</td>
+                <tr>
+                    <td>@Html.LabelFor(u => u.Gang, "Gang: ")</td>
+                    <td>@Html.DropDownListFor(u => u.Gang, new SelectList(Enum.GetValues(typeof(Gang))), "Gang auswählen")</td>
+
+                </tr>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <input type="submit" value="Fertig!" id="btnSubmit"
+                    </td>
+                </tr>
+            </tfoot>
+    </table>
+</div>
+}
